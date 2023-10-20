@@ -1,0 +1,33 @@
+[gd_scene load_steps=3 format=3 uid="uid://cwkuqxlp2r521"]
+
+[ext_resource type="Script" path="res://UI/TextEdit.gd" id="1_57qbf"]
+[ext_resource type="Script" path="res://UI/Button.gd" id="2_nwwyh"]
+
+[node name="Sample" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextEdit" type="TextEdit" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+script = ExtResource("1_57qbf")
+
+[node name="Button" type="Button" parent="VBoxContainer"]
+custom_minimum_size = Vector2(0, 100)
+layout_mode = 2
+text = "Run lengthy Task in Thread"
+script = ExtResource("2_nwwyh")
+
+[connection signal="pressed" from="VBoxContainer/Button" to="VBoxContainer/Button" method="_on_pressed"]
